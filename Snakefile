@@ -41,3 +41,14 @@ rule bcftools_call:
     shell:
         "bcftools mpileup -f {input.fa} {input.bam} | "
         "bcftools call -mv - > {output}"
+
+
+rule plot_quals:
+    input:
+        "calls/all.vcf"
+    output:
+        "plots/quals.svg"
+    conda:
+        "environment.yaml"
+    script:
+        "scripts/plot-quals.py"
