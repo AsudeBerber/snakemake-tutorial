@@ -1,3 +1,5 @@
+SAMPLES = ["A", "B"]
+
 rule bwa_map:
     input:
         "data/genome.fa",
@@ -25,5 +27,5 @@ rule bcftools_call:
     shell:
         "bcftools mpileup -f {input.fa} {input.bam} | "
         "bcftools call -mv - > {output}"
-        
+
 
