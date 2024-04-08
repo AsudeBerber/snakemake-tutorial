@@ -23,6 +23,8 @@ rule samtools_sort:
         "mapped_reads/{sample}.bam"
     output:
         "sorted_reads/{sample}.bam"
+    conda:
+        "environment.yaml"
     shell:
         "samtools sort -T sorted_reads/{wildcards.sample} "
         "-O bam {input} > {output}"
