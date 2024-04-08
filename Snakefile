@@ -1,5 +1,9 @@
 SAMPLES = ["A", "B"]
 
+rule all:
+    input:
+        "plots/quals.svg"
+
 rule bwa_map:
     input:
         "data/genome.fa",
